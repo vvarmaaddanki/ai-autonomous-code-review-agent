@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from app.agent import review_graph
 
 from app.services.github_service import (
@@ -67,14 +67,31 @@ class CodeReviewRequest(BaseModel):
 
 @app.post("/review")
 def review(request: CodeReviewRequest):
-    result = review_graph.invoke({
-        "code": request.code,
-        "final_review": ""
-    })
+    try:
+        result = review_graph.invoke({
+            "code": request.code,
+            "prompt": "",
+            "review": "",
+            "final_review": ""
+        })
 
-    return {
-        "review": result["final_review"]
-    }
+        return {
+            "review": result["final_review"]
+        }
+
+    except Exception as e:
+        error_message = str(e)
+
+        if "quota" in error_message.lower() or "429" in error_message:
+            raise HTTPException(
+                status_code=429,
+                detail="Gemini API quota exceeded. Please try again after the quota resets."
+            )
+
+        raise HTTPException(
+            status_code=500,
+            detail="AI code review service failed."
+        )
 
 @app.get("/github/{owner}/{repo}/file")
 def github_file_content(owner: str, repo: str, path: str):
