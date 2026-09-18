@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from app.schemas.review_schema import CodeReviewRequest
 
 from app.services.github_service import (
     get_repository_info,
@@ -55,9 +55,9 @@ def review(request: CodeReviewRequest):
         }
 
     except Exception as e:
-        error_message = str(e).lower()
+        error_message = str(e)
 
-        if "quota" in error_message or "429" in error_message:
+        if "quota" in error_message.lower():
             raise HTTPException(
                 status_code=429,
                 detail="Gemini API quota exceeded. Please try again after the quota resets."
