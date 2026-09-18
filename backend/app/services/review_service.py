@@ -1,8 +1,13 @@
 import os
-
+from pydantic import BaseModel, Field
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-
+class CodeReview(BaseModel):
+    bugs: list[str] = Field(description="Bugs found in the code")
+    security_issues: list[str] = Field(description="Security issues found")
+    performance_issues: list[str] = Field(description="Performance problems found")
+    code_quality: list[str] = Field(description="Code quality issues found")
+    recommendations: list[str] = Field(description="Recommended improvements")
 def get_llm():
     api_key = os.getenv("GOOGLE_API_KEY")
 
@@ -48,3 +53,10 @@ def review_with_prompt(prompt: str) -> str:
     response = llm.invoke(prompt)
 
     return response.content
+
+def structured_review(prompt: str) -> dict:
+    llm = get_llm().with_structured_output(CodeReview)
+
+    response = llm.invoke(prompt)
+
+    return response.model_dump()
