@@ -2,23 +2,42 @@
 
 > AI-powered autonomous code review system that analyzes source code from GitHub repositories and generates structured reviews for bugs, security vulnerabilities, performance issues, code quality, and recommended improvements.
 
+## 🚀 Live Demo :
+
+API: 
+https://ai-autonomous-code-review-agent.onrender.com
+
+Swagger / OpenAPI Documentation: 
+https://ai-autonomous-code-review-agent.onrender.com/docs
+
+Health Check: 
+https://ai-autonomous-code-review-agent.onrender.com/health
+
+
+## 🔄 How It Works
+1. User provides a GitHub repository.
+2. The application connects to the GitHub REST API.
+3. Repository files are retrieved.
+4. Python source files are selected for analysis.
+5. Source code is sent to Google Gemini.
+6. Gemini analyzes the code for bugs, security issues, performance problems, and code quality.
+7. The API returns structured AI-generated review results.
+
+# 🔗 Project Links
+- *GitHub Repository:* https://github.com/vvarmaaddanki/ai-autonomous-code-review-agent
+- *Live API: - https://ai-autonomous-code-review-agent.onrender.com
+- *API Documentation:* https://ai-autonomous-code-review-agent.onrender.com/docs
+- *API Documentation:* Available through FastAPI Swagger UI after running the application locally
+
+> * Note: The live deployment URL will be added after deploying the FastAPI backend.
+
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
 [![GitHub API](https://img.shields.io/badge/GitHub-API-black?logo=github)](https://docs.github.com/en/rest)
 [![Gemini](https://img.shields.io/badge/Google-Gemini%20AI-4285F4?logo=google)](https://ai.google.dev/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-Agentic%20Workflow-orange)](https://www.langchain.com/langgraph)
 
-## 🔗 Project Links
-
-- *GitHub Repository:* https://github.com/vvarmaaddanki/ai-autonomous-code-review-agent
-- *Live API:* Coming soon
-- *API Documentation:* Available through FastAPI Swagger UI after running the application locally
-
-> *Note:* The live deployment URL will be added after deploying the FastAPI backend.
-
----
-
-## 📌 Overview
+ 📌 Overview
 
 The *AI Autonomous Code Review Agent* is a Python-based backend application that connects the *GitHub API* with *Generative AI* to automate source-code review.
 
@@ -183,3 +202,29 @@ AI review of a GitHub file
 POST
 /github/{owner}/{repo}/review
 AI review of a GitHub repository
+
+## 👨‍💻 Author
+*A V Varma*  
+Software Engineer | Python Backend Developer
+
+- 💼 LinkedIn: [A V Varma](https://www.linkedin.com/in/vvarmaaddanki/)
+- 🐙 GitHub: [vvarmaaddanki](https://github.com/vvarmaaddanki)
+- 📧 Email: varmakbm9@gmail.com
+
+### About the Author
+
+Computer Science and Engineering graduate focused on Python backend development, REST APIs, Generative AI, and AI-powered applications. Experienced in building backend projects using Python, Django, FastAPI, PostgreSQL, Git/GitHub, and AI/LLM technologies.
+
+API Endpoints
+        ↓
+How It Works
+        ↓
+Technology Stack
+        ↓
+Project Structure
+        ↓
+Deployment
+        ↓
+Author
+        ↓
+Licens
