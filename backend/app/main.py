@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from app.schemas.review_schema import CodeReviewRequest
+from app.schemas.review_schema import CodeReviewRequest, CodeReviewResponse
 
 from app.services.github_service import (
     get_repository_info,
@@ -17,9 +17,6 @@ app = FastAPI(
     version="1.0.0",
 )
 
-
-class CodeReviewRequest(BaseModel):
-    code: str
 
 
 @app.get("/health")
