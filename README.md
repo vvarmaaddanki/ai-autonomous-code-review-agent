@@ -107,6 +107,7 @@ API credentials are loaded through environment variables rather than hard-coded 
                  ┌──────────────────────┐
                  │ Structured Code      │
                  │ Review & Suggestions │
+
                  └──────────────────────┘
 🛠️ Technology Stack
 Backend
@@ -136,6 +137,7 @@ Git
 GitHub
 VS Code
 Python Virtual Environment
+
 📂 Project Structure
 ai-autonomous-code-review-agent/
 │
@@ -155,6 +157,7 @@ ai-autonomous-code-review-agent/
 ├── .gitignore
 ├── README.md
 └── LICENSE
+
 🔌 API Endpoints
 Method
 Endpoint
